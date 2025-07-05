@@ -2,7 +2,7 @@ import React from "react";
 import { FaRegFileAlt } from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { MdClose } from "react-icons/md";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 function Cards({ data, reference, onDelete }) {
   motion;
