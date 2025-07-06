@@ -25,12 +25,12 @@ function Cards({ data, reference, onDelete }) {
           </h3>
         </div>
       )}
-      <p className="text-md leading-tight mt-5 font-semibold pl-5 ">
+      <p className="text-md leading-tight tracking-wide mt-5 capitalize font-semibold pl-5 ">
         {data.desc}
       </p>
       <div className="footer absolute bottom-0 w-full left-0 ">
         <div className="flex items-center px-8  justify-center mb-3">
-          <span className="py-2 px-4 bg-red-500 hover:bg-red-600 rounded-md flex items-center justify-center">
+          <span className="py-2 px-4 font-semibold tracking-wide bg-red-500 hover:bg-red-600 rounded-md flex items-center justify-center">
             <button onClick={onDelete}>Delete</button>
           </span>
         </div>

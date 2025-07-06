@@ -45,7 +45,7 @@ function Foreground() {
     <div className="relative z-10 min-h-screen w-full bg-transparent">
       <div
         ref={ref}
-        className="w-full min-h-screen top-0 left-0 grid gap-6 p-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
+        className="w-full h-[100dvh] sm:min-h-screen top-0 left-0 grid gap-6 p-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
       >
         {tasks.map((items, index) => (
           <Cards
@@ -60,10 +60,10 @@ function Foreground() {
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
         <button
           onClick={() => setShowForm(true)}
-          className="group flex items-center gap-2 cursor-pointer border rounded-md hover:bg-green-500 bg-green-500/50 px-4 py-2 hover:border-black"
+          className="group  flex items-center gap-2 cursor-pointer border rounded-md hover:bg-green-600 bg-green-500/40 px-4 py-2 hover:border-black"
         >
           <FaPlus className="text-zinc-200 text-3xl" />
-          <span className="hidden sm:block tracking-tight text-zinc-200 text-2xl">
+          <span className="hidden sm:block font-semibold text-zinc-200 text-2xl">
             Add Task
           </span>
         </button>
