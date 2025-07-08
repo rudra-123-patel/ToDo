@@ -24,7 +24,7 @@ function Cards({ data, reference, onDelete }) {
           {data.tag.tagTitle}
         </h3>
       </div>
-      <p className="text-md leading-tight tracking-wide mt-5 capitalize font-semibold pl-5 ">
+      <p className="text-md leading-tight tracking-wide mt-5 capitalize font-semibold pl-5  ">
         {data.desc}
       </p>
       <div className="footer absolute bottom-0 w-full left-0 ">
