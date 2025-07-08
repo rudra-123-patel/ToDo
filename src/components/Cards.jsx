@@ -13,19 +13,17 @@ function Cards({ data, reference, onDelete }) {
       whileDrag={{ scale: 0.8 }}
       dragConstraints={reference}
       dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-      className="relative flex-shrink-2 flex-wrap w-44 h-52 sm:w-60 sm:h-72 rounded-[40px] bg-zinc-900/90 text-white  overflow-hidden"
+      className="relative flex-shrink-2 flex-wrap w-44 h-50 sm:w-56 sm:h-64 rounded-[35px] bg-zinc-900/90 text-white  overflow-hidden"
     >
-      {data.tag.isOpen && (
-        <div
-          className={`tag w-full flex items-center justify-center ${
-            data.tag.tagColor === "blue" ? "bg-blue-600" : "bg-green-600"
-          } py-4 `}
-        >
-          <h3 className="text-xl font-semibold capitalize">
-            {data.tag.tagTitle}
-          </h3>
-        </div>
-      )}
+      <div
+        className={
+          "tag w-full flex items-center justify-center bg-green-600 py-4 "
+        }
+      >
+        <h3 className="text-xl font-semibold capitalize">
+          {data.tag.tagTitle}
+        </h3>
+      </div>
       <p className="text-md leading-tight tracking-wide mt-5 capitalize font-semibold pl-5 ">
         {data.desc}
       </p>

@@ -45,7 +45,7 @@ function Foreground() {
     <div className="relative z-10 min-h-screen w-full bg-transparent">
       <div
         ref={ref}
-        className="w-full h-[100dvh] pt-20 sm:min-h-screen top-0 left-0 grid gap-6 p-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
+        className="w-full h-[100dvh] pt-40 sm:pt-32 sm:min-h-screen top-0 left-0 grid gap-2 p-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 "
       >
         {tasks.map((items, index) => (
           <Cards
