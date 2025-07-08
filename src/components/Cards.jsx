@@ -12,6 +12,7 @@ function Cards({ data, reference, onDelete }) {
       drag
       whileDrag={{ scale: 0.8 }}
       dragConstraints={reference}
+      dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
       className="relative flex-shrink-2 flex-wrap w-44 h-52 sm:w-60 sm:h-72 rounded-[40px] bg-zinc-900/90 text-white  overflow-hidden"
     >
       {data.tag.isOpen && (
