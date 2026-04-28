@@ -4,7 +4,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
 
-function Cards({ data, reference, onDelete }) {
+function Cards({ data, reference, onDelete, onEdit }) {
   motion;
 
   return (
@@ -28,10 +28,13 @@ function Cards({ data, reference, onDelete }) {
         {data.desc}
       </p>
       <div className="footer absolute bottom-0 w-full left-0 ">
-        <div className="flex items-center px-8  justify-center mb-3">
-          <span className="py-2 px-4 font-semibold tracking-wide bg-red-500 hover:bg-red-600 rounded-md flex items-center justify-center">
-            <button onClick={onDelete}>Delete</button>
-          </span>
+        <div className="flex items-center px-4 justify-center mb-3 gap-2">
+          <button onClick={onEdit} className="py-1 px-3 sm:py-2 sm:px-4 text-sm sm:text-base font-semibold tracking-wide bg-blue-500 hover:bg-blue-600 rounded-md flex items-center justify-center">
+            Edit
+          </button>
+          <button onClick={onDelete} className="py-1 px-3 sm:py-2 sm:px-4 text-sm sm:text-base font-semibold tracking-wide bg-red-500 hover:bg-red-600 rounded-md flex items-center justify-center">
+            Delete
+          </button>
         </div>
       </div>
     </motion.div>

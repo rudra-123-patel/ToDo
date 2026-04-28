@@ -7,6 +7,7 @@ function Foreground() {
   const [task, setTask] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState("");
+  const [editIndex, setEditIndex] = useState(null);
 
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem("tasks");
@@ -29,7 +30,16 @@ function Foreground() {
           tagColor: "",
         },
       };
-      setTasks((prev) => [...prev, newTask]);
+      
+      if (editIndex !== null) {
+        setTasks((prev) =>
+          prev.map((item, index) => (index === editIndex ? newTask : item))
+        );
+        setEditIndex(null);
+      } else {
+        setTasks((prev) => [...prev, newTask]);
+      }
+      
       setTask("");
       setTitle("");
       setShowForm(false);
@@ -39,6 +49,14 @@ function Foreground() {
   const handleDelete = (indexToDelete) => {
     const updated = tasks.filter((_, index) => index !== indexToDelete);
     setTasks(updated);
+  };
+
+  const handleEdit = (indexToEdit) => {
+    const taskToEdit = tasks[indexToEdit];
+    setTitle(taskToEdit.tag.tagTitle);
+    setTask(taskToEdit.desc);
+    setEditIndex(indexToEdit);
+    setShowForm(true);
   };
 
   return (
@@ -53,13 +71,19 @@ function Foreground() {
             data={items}
             reference={ref}
             onDelete={() => handleDelete(index)}
+            onEdit={() => handleEdit(index)}
           />
         ))}
       </div>
 
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
         <button
-          onClick={() => setShowForm(true)}
+          onClick={() => {
+            setShowForm(true);
+            setEditIndex(null);
+            setTitle("");
+            setTask("");
+          }}
           className="group  flex items-center gap-2 cursor-pointer border rounded-md hover:bg-green-600 bg-green-500/40 px-4 py-2 hover:border-black"
         >
           <FaPlus className="text-zinc-200 text-3xl" />
@@ -95,7 +119,12 @@ function Foreground() {
             <div className="flex justify-center gap-2">
               <button
                 type="button"
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  setShowForm(false);
+                  setEditIndex(null);
+                  setTitle("");
+                  setTask("");
+                }}
                 className="text-xl cursor-pointer tracking-tight border-2 py-2 px-4 rounded-md hover:text-white border-zinc-900 hover:bg-zinc-800"
               >
                 Close
@@ -104,7 +133,7 @@ function Foreground() {
                 type="submit"
                 className="px-4 cursor-pointer py-2 border-2 hover:border-black rounded text-xl hover:text-white hover:bg-green-600"
               >
-                Add Task
+                {editIndex !== null ? "Update Task" : "Add Task"}
               </button>
             </div>
           </form>
